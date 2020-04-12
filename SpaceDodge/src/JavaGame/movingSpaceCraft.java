@@ -183,6 +183,7 @@ public class movingSpaceCraft implements KeyListener
 		}
 		saveScore();
 		//end game window
+		frame.dispose();
 		JOptionPane.showMessageDialog(null, "Highest Level: "+level+"\nScore: "+score*10, "Game Over", JOptionPane.WARNING_MESSAGE);
   	}
 	public void moveChar(int xNewCharPos,int yNewCharPos) //main moving function for character

@@ -10,3 +10,10 @@ Admin 160
 Admin 200
 anil 170
 anil 170
+dgc 540
+dgc 540
+dgc 60
+dgc 60
+dgc 90
+dgc 50
+dgc 180
