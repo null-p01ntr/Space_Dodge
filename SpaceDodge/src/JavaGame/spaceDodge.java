@@ -1,9 +1,10 @@
 package JavaGame;
 
-import javax.swing.JOptionPane;
 import java.io.IOException;
 
-public class main 
+import javax.swing.JOptionPane;
+
+public class spaceDodge
 {
 	/**
 	 * @param args
@@ -14,8 +15,7 @@ public class main
 	public static void main(String[] args) throws IOException, InterruptedException 
 	{		
 		String selectionInput=null;
-		int selectionInputINT=0;
-		movingSpaceCraft  spaceDodge=new  movingSpaceCraft();	
+		int selectionInputINT=0;	
 		
 		do
 		{	
@@ -45,6 +45,7 @@ public class main
 				}
 				else //start the game if the player already logged in successfully
 				{
+					movingSpaceCraft  spaceDodge=new  movingSpaceCraft();
 					spaceDodge.createGUI();
 				}
 			}

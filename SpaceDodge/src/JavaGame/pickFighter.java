@@ -4,7 +4,8 @@ public enum pickFighter
 {
 	one("(1)", "Millennium Falcon\n"), 
 	two("(2)", "Infinity Gauntlet\n"), 
-	three("(3)", "Tardis\n");
+	three("(3)", "Tardis\n"),
+	four("(4)", "Green\n");
 	
 	private final String num;
 	private final String desc;

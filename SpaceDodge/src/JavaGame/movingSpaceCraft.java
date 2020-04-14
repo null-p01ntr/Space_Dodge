@@ -27,6 +27,7 @@ public class movingSpaceCraft implements KeyListener
 	private JLabel character;
 	private Icon fighter;
 	private String pickedFighter=null;//file name of the fighter picked by player
+	private String pickedFighterName=null;
 	//Size of the character
   	private int xCharSize=120;
   	private int yCharSize=160;
@@ -89,29 +90,28 @@ public class movingSpaceCraft implements KeyListener
 	
 	public void createGUI() throws IOException, InterruptedException
   	{	
-		//CHARACTER
 		pickChar(); 
-		fighter=new ImageIcon(getClass().getResource(pickedFighter));
+		fighter=new ImageIcon(getClass().getClassLoader().getResource(pickedFighter));
 		character = new JLabel(fighter);  
 		character.setBounds(xCharPos, yCharPos, xCharSize, yCharSize);
 		//FIRE
-		blast=new ImageIcon(getClass().getResource("fire.png"));
+		blast=new ImageIcon(getClass().getClassLoader().getResource("fire.png"));
 		fire = new JLabel(blast);
 		fire.setBounds(xFirePos, yFirePos, xFireSize, yFireSize);
 		//LIVES
-		hearts=new ImageIcon(getClass().getResource("hearts.png"));
+		hearts=new ImageIcon(getClass().getClassLoader().getResource("hearts.png"));
 		live = new JLabel(hearts);  
 		live.setBounds(xLivePos, yLivePos, xLiveSize, yLiveSize);
 		//OBSTACLE
-		meteor=new ImageIcon(getClass().getResource("obs.png"));
+		meteor=new ImageIcon(getClass().getClassLoader().getResource("obs.png"));
 		obstacle = new JLabel(meteor);
 		obstacle.setBounds(xObsPos, yObsPos, xObsSize, yObsSize);
 		//LEVELUP
-		up=new ImageIcon(getClass().getResource("levelup.png"));
+		up=new ImageIcon(getClass().getClassLoader().getResource("levelup.png"));
 		levelup = new JLabel(up);
 		levelup.setBounds(xLUPos, yLUPos, xLUSize, yLUSize);
 		//BACKGROUND
-		stars=new ImageIcon(getClass().getResource("back.jpg"));
+		stars=new ImageIcon(getClass().getClassLoader().getResource("back.jpg"));
 		background = new JLabel(stars);  
 		background.setBounds(xBackPos, yBackPos, xBackSize, yBackSize);
   		//WINDOW
@@ -183,7 +183,7 @@ public class movingSpaceCraft implements KeyListener
 		}
 		saveScore();
 		//end game window
-		frame.dispose();
+		//frame.dispose();
 		JOptionPane.showMessageDialog(null, "Highest Level: "+level+"\nScore: "+score*10, "Game Over", JOptionPane.WARNING_MESSAGE);
   	}
 	public void moveChar(int xNewCharPos,int yNewCharPos) //main moving function for character
@@ -218,17 +218,25 @@ public class movingSpaceCraft implements KeyListener
 		picked=JOptionPane.showInputDialog(null, pick, "Pick Your Fighter", JOptionPane.INFORMATION_MESSAGE);			
 		p = Integer.parseInt(picked);
 		
-		if(p==1) //Millennium Falcon
+		if(p==1)
 		{
 			pickedFighter="mf.png";
+			pickedFighterName="Millennium Falcon";
 		}
-		else if(p==2) //Infinity Gauntlet
+		else if(p==2)
 		{
 			pickedFighter="thanos.png";
+			pickedFighterName="Infinity Gauntlet";
 		}
-		else if(p==3) //Tardis
+		else if(p==3)
 		{	
 			pickedFighter="tardis.png";
+			pickedFighterName="Tardis";
+		}
+		else if(p==4)
+		{	
+			pickedFighter="weed.png";
+			pickedFighterName="Green";
 		}
 	}
   	private void fire() //move fire blast image to forward (will repeat in the meteor's while loop at the top)
@@ -272,7 +280,7 @@ public class movingSpaceCraft implements KeyListener
   	  try 
   		{
   			PrintWriter pw = new PrintWriter(new FileOutputStream("Scores.txt", true));//preventing overwrite
-  			pw.printf("%s %d\n", login.loginName, score*10);
+  			pw.printf("%d %s as %s\n", score*10, login.loginName, pickedFighterName);
   			pw.close();
   		}
   		catch (IOException e) 

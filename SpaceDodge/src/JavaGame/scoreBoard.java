@@ -4,27 +4,34 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.JOptionPane;
 
 public class scoreBoard
 {    
-    String Scores = ""; //main string variable to hold usernames and scores 
+    ArrayList<String> Scores=new ArrayList<String>(); //main string variable to hold usernames and scores 
     
     String exit=null;
 	int e=0;//exit command
 	
 	scoreBoard()
 	{
+		Scores.add("\n");
 		readScoreFile("Scores.txt");
-	    Scores+="\n(0) For main menu";
-	   
+		Scores.add("\n(0) For main menu");
+		String list="";
+		for(int i=0;i<Scores.size();i++)
+			list+=Scores.get(i);
 		do
 		{
-			exit=JOptionPane.showInputDialog(null, Scores, "Scores", JOptionPane.INFORMATION_MESSAGE);			
+			exit=JOptionPane.showInputDialog(null, list, "Scores", JOptionPane.INFORMATION_MESSAGE);			
 			e = Integer.parseInt(exit);
 		}while(e!=0);
 	}
+	
+	
 	public void readScoreFile(String FileName) //reading scores from related .txt file
 	{
 		String line = null;
@@ -35,9 +42,11 @@ public class scoreBoard
 
 	        while((line = bufferedReader.readLine()) != null) 
 	        {
-	        	Scores+=line;
-	        	Scores+="\n";
+	        	Scores.add(line+"\n");
 	        }
+	        Collections.sort(Scores,Collections.reverseOrder());
+	        System.out.printf("%s", Scores.get(2));
+	        
 	        bufferedReader.close();         
 	    }
 	    catch(FileNotFoundException ex) 

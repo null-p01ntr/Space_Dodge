@@ -38,6 +38,7 @@ public class login
 		else
 		{
 			JOptionPane.showMessageDialog(null, "Username does not exist please register", "ERROR", JOptionPane.ERROR_MESSAGE);
+			loginName=null;
 			Failed=true;
 		}
 	}
@@ -67,6 +68,7 @@ public class login
 		else
 		{
 			JOptionPane.showMessageDialog(null, "Username does not exist please register", "ERROR", JOptionPane.ERROR_MESSAGE);
+			loginName=null;
 			Failed=true;
 		}
 	

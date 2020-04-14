@@ -1,19 +1,10 @@
-Admin 330
-Admin 330
-Admin 330
-Dogac 180
-Dogac 180
-Admin 60
-Dogac 400
-dogac 150
-Admin 160
-Admin 200
-anil 170
-anil 170
-dgc 540
-dgc 540
-dgc 60
-dgc 60
-dgc 90
-dgc 50
-dgc 180
+230 dgc as Millenium Falcon
+800 DrWho as Tardis
+420 SnoopDogg as Green
+830 Thanos as Infinity Gauntlet
+870 HanSolo as Millenium Falcon
+330 dgc as Infinity Gauntlet
+130 dgc as Infinity Gauntlet
+220 dgc as Millennium Falcon
+200 dgc as Millennium Falcon
+50 null as Green
